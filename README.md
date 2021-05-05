@@ -67,7 +67,7 @@ vibrant is available on the Arch Linux User Repository, maintained by me.
 - [vibrant-git](https://aur.archlinux.org/packages/vibrant-git/)<sup>AUR</sup> - Latest revision from Git master of the vibrant library and vibrant-cli
 
 ## Other Distros
-See [Bulding](#Building)
+See [Building](#Building)
 
 # Building
 This project uses CMake.
@@ -77,14 +77,19 @@ This project uses CMake.
 - libXrandr (possibly bundled with libX11)
 - libXNVCtrl (possibly bundled with nvidia-settings)
 
+### For Fedora
+`dnf install cmake make libX11 libX11-devel libXrandr libXrandr-devel libXNVCtrl libXNVCtrl-devel`
+
 ## Basic building
 ```bash
 $ cd <project directory>
 $ mkdir build
 $ cd build
 $ cmake ..
-$ make
+$ sudo make install
 ```
+### Additional steps if it won't build
+If you get  the error `./vibrantLinux: error while loading shared libraries: libvibrant.so.1: cannot open shared object file: No such file or directory`, you need to run `echo "/usr/local/lib64" | sudo tee /etc/ld.so.conf.d/local-x86_64.conf` and then `sudo ldconfig`.
 
 The binary will be called `vibrant-cli` and will be linked to `libvibrant.so.0`
 
