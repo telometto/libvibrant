@@ -86,7 +86,7 @@ $ cd <project directory>
 $ mkdir build
 $ cd build
 $ cmake ..
-$ make install   ## Please note that if you get an error, you might have to use this particular command as root.
+$ make install   ## Please note that if you get an error, you might have to run this particular command as root.
 ```
 ### Additional steps if it won't build
 If you get  the error `./vibrantLinux: error while loading shared libraries: libvibrant.so.1: cannot open shared object file: No such file or directory`, you need to run `echo "/usr/local/lib64" | sudo tee /etc/ld.so.conf.d/local-x86_64.conf` and then `sudo ldconfig`.
